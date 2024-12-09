@@ -1,0 +1,39 @@
+    #planTripForm,
+    #planTripTable {
+        background-color: white; 
+        padding: 20px; 
+        border-radius: 10px; 
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    }
+
+    #planTripForm {
+        margin-bottom: 30px; 
+    }
+
+    #planTripTable {
+        margin-top: 20px; 
+    }
+
+    #planTripTable thead th {
+        background-color: #007bff; 
+        color: white; 
+        text-align: center;
+    }
+
+    #planTripTable tbody tr:hover {
+        background-color: #f1f1f1; 
+    }
+
+    h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #007bff;
+    }
+
+    #planTripForm .form-control,
+    #planTripForm .form-select {
+        width: 100%;
+        max-width: 300px;
+        margin: auto;
+    }

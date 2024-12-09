@@ -86,3 +86,5 @@ This project is licensed under the MIT License. Feel free to use and modify it a
 ---
 
 Enjoy planning your trips with **Travel Planner**!
+
+Link to Github Repo: [trip-planner repo](https://github.com/mshahcode/trip-planner)

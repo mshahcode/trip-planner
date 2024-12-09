@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // Get input elements
         const startDateInput = document.getElementById('startDate');
         const endDateInput = document.getElementById('endDate');
+        const destinationInput = document.getElementById('destinationCity');
+        const invalidCityFeedback = document.getElementById('invalid-city-name');
+        invalidCityFeedback.innerHTML = '';
 
         // Get input values
         const destination = document.getElementById('destinationCity').value;
@@ -16,11 +19,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const travelers = document.getElementById('numberOfPeople').value;
         const travelType = document.getElementById('travelType').value;
 
+        const cityRegex = /^[a-zA-Z\s]+$/;
+        if (!destination) {
+            destinationInput.setCustomValidity('City name cannot be empty.');
+        } else if (!cityRegex.test(destination)) {
+            invalidCityFeedback.innerHTML = "City name cannot contain numbers or special characters.";
+            destinationInput.setCustomValidity('City name cannot contain numbers or special characters.');
+        } else {
+            destinationInput.setCustomValidity('');
+        }
+
         // Parse dates
         const startDate = new Date(startDateValue);
         const endDate = new Date(endDateValue);
         const today = new Date();
-        today.setHours(0, 0, 0, 0); 
+        today.setHours(0, 0, 0, 0);
 
         // Custom date validation
         let isValid = true;

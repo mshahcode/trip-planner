@@ -1,16 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f9f9f9;
 }
 
 #sidebar {
-    background: linear-gradient(135deg, #007BFF, #0056b3); /* Subtle gradient */
+    background: linear-gradient(135deg, #f8f9fa, #dadcdf); /* Subtle gradient */
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
     padding: 20px 10px; /* Spacing around */
     display: flex;
@@ -123,7 +129,7 @@ body {
 }
 
 footer {
-    background-color: #224abe;
+    background-color: #343a40;
     color: white;
     text-align: center;
     padding: 15px;

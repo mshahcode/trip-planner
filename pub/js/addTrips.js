@@ -9,8 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const startDateInput = document.getElementById('startDate');
         const endDateInput = document.getElementById('endDate');
         const destinationInput = document.getElementById('destinationCity');
-        const invalidCityFeedback = document.getElementById('invalid-city-name');
-        invalidCityFeedback.innerHTML = '';
 
         // Get input values
         const destination = document.getElementById('destinationCity').value;
@@ -20,10 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const travelType = document.getElementById('travelType').value;
 
         const cityRegex = /^[a-zA-Z\s]+$/;
-        if (!destination) {
+        if (!destination || destination.trim() === '') {
             destinationInput.setCustomValidity('City name cannot be empty.');
+            destinationInput.nextElementSibling.innerHTML = "City name cannot be empty.";
         } else if (!cityRegex.test(destination)) {
-            invalidCityFeedback.innerHTML = "City name cannot contain numbers or special characters.";
+            destinationInput.nextElementSibling.innerHTML = "City name cannot contain numbers or special characters.";
             destinationInput.setCustomValidity('City name cannot contain numbers or special characters.');
         } else {
             destinationInput.setCustomValidity('');
@@ -58,6 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        const preferences = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+            .map(checkbox => checkbox.value);
+        const accommodation = document.querySelector('input[name="accommodation"]:checked')?.value;
+
+        console.log("Preferences:", preferences);
+        console.log("Accommodation:", accommodation);
+
         // Add new row to table
         const newRow = document.createElement('tr');
         newRow.innerHTML = `
@@ -66,6 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <td>${startDateValue}</td>
             <td>${endDateValue}</td>
             <td>${travelType}</td>
+            <td>${preferences.join(', ') || 'None'}</td>
+            <td>${accommodation || 'None'}</td>
             <td><button type="button" class="delete-btn btn btn-danger px-3">Delete</button></td>
         `;
 
